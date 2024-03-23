@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+import 'package:app4/Login_page.dart';
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  String _email = '';
+  String _password = '';
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      // Handle form submission here
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Login Page'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Email'),
+              TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _email = value!;
+                },
+              ),
+              SizedBox(height: 16.0),
+              Text('Password'),
+              TextFormField(
+                obscureText: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _password = value!;
+                },
+              ),
+              SizedBox(height: 16.0),
+              Center(
+                child: ElevatedButton(
+                  onPressed: _submitForm,
+                  child: Text('Login'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
