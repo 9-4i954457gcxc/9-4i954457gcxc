@@ -1,0 +1,55 @@
+ import 'package:flutter/material.dart';
+
+void main (){
+  runApp(MyApp());
+}
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white,
+
+
+      appBar: AppBar(
+          backgroundColor: Colors.cyan,
+        ),
+
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            TextFormField(
+              keyboardType: TextInputType.phone,
+              style: TextStyle(fontSize: 20,color: Colors.blue),
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.email),
+                fillColor: Colors.yellow.withOpacity(0.3),
+                filled: true,
+                hintText: 'uu',
+                  labelText: 'j',
+                helperStyle: TextStyle(fontSize: 30,color: Colors.blue),
+                enabledBorder: OutlineInputBorder(
+                 borderSide: BorderSide(color: Colors.black,width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black,width: 1),
+                  borderRadius: BorderRadius.circular(5)
+                ),
+
+              )
+
+            )
+          ],
+
+        ),
+      ),
+    );
+  }
+}
+
+
