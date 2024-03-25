@@ -1,0 +1,172 @@
+import 'package:flutter/material.dart';
+import 'package:simpleapp/home_screen.dart';
+
+
+void main (){
+  runApp ( const MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'flutter',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+
+      ),
+     home: HomeScreen(
+
+
+     ),
+
+
+    );
+  }
+}
+
+
+
+// HOME SCREEN 
+
+
+import 'package:flutter/material.dart';
+import 'package:simpleapp/Screen_tow.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text ('hooo'),
+        backgroundColor: Colors.blue,
+      ),
+
+
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          TextButton(
+              onPressed: (){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context)=>ScreenTow())
+                );
+              },
+              child: Text('Screen 1'))
+
+        ],
+      ),
+    );
+  }
+}
+
+//THE FILE THE SCOUND FILE THE 2ND SCREEN
+
+import 'package:flutter/material.dart';
+import 'package:simpleapp/Screen_three.dart';
+import 'package:simpleapp/home_screen.dart';
+
+class ScreenTow extends StatefulWidget {
+  const ScreenTow({super.key});
+
+  @override
+  State<ScreenTow> createState() => _ScreenTowState();
+}
+
+class _ScreenTowState extends State<ScreenTow> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text ('WELCOME TO MY APP '),
+        backgroundColor: Colors.blue,
+      ),
+
+
+
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+
+              child:     TextButton(
+                  onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context)=>ScreenThree())
+                    );
+                  },
+                  child: Text('Screen 2')
+
+              )
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// THE 3ND SCREEEN 
+
+import 'package:simpleapp/Screen_three.dart';
+import 'package:flutter/material.dart';
+
+class ScreenThree extends StatefulWidget {
+  const ScreenThree({super.key});
+
+  @override
+  State<ScreenThree> createState() => _ScreenThreeState();
+}
+
+class _ScreenThreeState extends State<ScreenThree> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('hi'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          TextButton(
+              onPressed: (){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context)=>ScreenThree())
+                );
+              },
+              child: Text('Screen 3'))
+
+        ],
+      ),
+
+    );
+  }
+}
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+      
