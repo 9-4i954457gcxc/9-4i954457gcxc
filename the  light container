@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+
+void main (){
+  runApp(MaterialApp(
+    home: Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          Center(
+            child: Container(
+              width: 150,
+              height: 25,
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  color: Colors.red,
+                  width:1
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.red,
+                    blurRadius: 30,
+
+                  )
+
+
+                ]
+
+
+
+
+
+              ),
+              child: Center(child: Text('Login')),
+            ),
+          )
+        ],
+      ),
+    ),
+  ));
+}
