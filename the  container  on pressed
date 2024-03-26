@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:untitled9/Screentow.dart';
+import 'package:untitled9/home_Screen.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.orange,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+
+      ),
+      body: Column(
+        children: [
+          TextButton(
+              onPressed:(){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ScreenTow()
+
+                )
+
+                );
+
+              },
+
+
+              child: Container(
+                color: Colors.black,
+                width: 100,
+                height: 100,
+                
+
+              )
+          )
+        ],
+
+      ),
+    );
+  }
+}
