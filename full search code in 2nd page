@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+
+void main (){
+  runApp (MaterialApp(
+    home:First() ,
+  ));
+
+}
+
+
+
+
+var Cities=['HE','HH','HAM'];
+var Recentcities=['AA','FF'],Myselected;
+
+
+class First extends StatelessWidget {
+  const First({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: Drawer(),
+      appBar: AppBar(
+        title: Text('MY APP SERACH BAR'),centerTitle: true,backgroundColor: Colors.blue,),
+      body: IconButton(
+          onPressed: (){
+            showSearch(context: context, delegate: Mysearch());
+          },
+          icon: Icon(Icons.search)),
+
+
+    );
+  }
+}
+
+
+class  Mysearch extends SearchDelegate<String>{
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+ return  [IconButton(onPressed: (){},icon: Icon(Icons.clear_all,color: Colors.pink,size: 35,),)];
+  }
+
+
+
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+
+   return IconButton(onPressed: (){
+     close(context, '');
+   }, icon:Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>NewPage()));
+    return Text('');
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    var Matching=Cities.where((element) => element.toLowerCase().startsWith(query)).toList();
+    print(Matching);
+
+    print (query);
+    return ListView.builder(
+      itemCount: Matching.length,
+      itemBuilder: (context,index){
+        return InkWell(
+          
+          onTap: (){
+            print(Matching[index]);
+            Myselected=Matching[index];
+            buildResults(context);
+
+
+          },
+          child: Row(
+            
+            children: [
+              Icon(Icons.location_city,color: Colors.pink,size: 28,),
+              Text("${Matching[index]}")
+             // RichText(text: TextSpan(text: '$Querybold' , style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)))
+            ],
+          ),
+        );
+       
+      
+        
+      },
+    );
+  }
+  
+}
+
+class NewPage extends StatelessWidget {
+  const NewPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
+
+
+
