@@ -1,0 +1,129 @@
+import 'package:app07/custom.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+      ),
+      body: MusicApp(),
+    ),
+  ));
+}
+
+class MusicApp extends StatefulWidget {
+  const MusicApp({super.key});
+
+  @override
+  State<MusicApp> createState() => _MusicAppState();
+}
+
+class _MusicAppState extends State<MusicApp> {
+  List musicList = [
+    {
+      "title": "YouTube",
+      "singer": "rishi",
+      "url": "https://www.youtube.com/watch?v=LnbvtRIw-Es",
+    },
+    {
+      "title": "YouTube Music",
+      "singer": "ss",
+      "url": "https://music.youtube.com/watch?v=LnbvtRIw-Es",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          "my Play list",
+          style: TextStyle(color: Colors.black),
+        ),
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: musicList.length,
+              itemBuilder: (context, index) =>Custom(
+                  title: musicList[index]['title'],
+                  singer: musicList[index]['singer']
+              )
+
+
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+// the file movie the 2nd file 
+
+
+import 'package:flutter/material.dart';
+
+
+Widget Custom({
+  required String title,required String singer,onTap,
+}) {
+  return Container(
+    padding: EdgeInsets.all(2),
+    child: Row(
+      children: [
+        Container(
+          height: 80,
+          width: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+
+
+          ),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Column(
+          children: [
+            Text('dd'
+              , style: TextStyle( fontSize: 18.0,
+                fontWeight: FontWeight .w600,
+              ),
+// TextStyle
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(title,style: TextStyle(color: Colors.blue,fontSize: 16)
+              ,
+
+
+            ),
+
+          ],
+        )
+      ],
+    ),
+  );
+
+
+
+
+
+
+
+}
+
+
+
+
