@@ -38,6 +38,13 @@ flutter:
 // add the pakcage in  the flutter  pub .yemil file 
 
 
+try noow 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  just_audio: ^0.9.10
+
+
 
 
 
