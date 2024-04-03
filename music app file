@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Audio Player'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            child: Text('Play Audio'),
+            onPressed: () async {
+              final player = AudioPlayer();
+              await player.setAsset("assets/ram.mp3");
+              await player.play();
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+flutter:
+  assets:
+    - assets/ram.mp3
+
+
+
+// add the pakcage in  the flutter  pub .yemil file 
+
+
+
+
+
+
+
